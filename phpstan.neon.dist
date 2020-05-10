@@ -1,0 +1,25 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+
+    paths:
+        - app
+        - tests
+
+    # The level 8 is the highest level
+    level: 5
+
+    ignoreErrors:
+        - '#Unsafe usage of new static#'
+        - '#Function factory invoked with [0-9] parameters, [0-9] required.#'
+        - '#.*Mockery\\LegacyMockInterface given.#'
+
+    excludes_analyse:
+        - ./*/*/FileToBeExcluded.php
+        - ./*/factories/*.php
+
+    checkMissingIterableValueType: false
+
+    autoload_directories:
+        - database
